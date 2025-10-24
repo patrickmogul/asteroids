@@ -17,6 +17,10 @@ class Player(CircleShape):
             self.rotate(-dt)
         if keys[pygame.K_d]:
             self.rotate(dt)
+        if keys[pygame.K_w]:
+            self.move(dt)
+        if keys[pygame.K_s]:
+            self.move(-dt)
         
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
@@ -30,4 +34,8 @@ class Player(CircleShape):
         self.rotation += constants.PLAYER_TURN_SPEED * dt
         return self.rotation
     
+    def move(self, dt):
+        forward = pygame.Vector2(0, -1).rotate(self.rotation)
+        self.position += forward * constants.PLAYER_SPEED * dt
+        return self.position
     
