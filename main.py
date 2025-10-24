@@ -20,6 +20,9 @@ def main():
                 return
         screen.fill((0, 0, 0))
         
+        # Update the player
+        player.update(dt)
+        
         # Draw the player
         player.draw(screen)
         
